@@ -1,0 +1,391 @@
+p, h1, h2, h3, h4, a {
+	font-family: 'Yantramanav', sans-serif;
+}
+
+body{
+	background-color: white;
+    color: #333333;
+    top:0%;
+    left:0%;
+    margin:0;	
+    overflow-x:hidden;
+}
+
+h1 {
+	font-size:2em;
+	font-weight:700;
+	margin:0;
+	padding:0;
+	display:inline-block;
+	vertical-align:middle;
+}
+
+#title {
+	margin:auto;
+	text-align:center;
+	padding-top:2%;
+	padding-bottom:2%;
+}
+
+#favicon {
+	width:2%;
+	position:relative;
+	margin:0;
+	padding:0%;
+	padding-right:1%;
+	display:inline-block;
+	vertical-align:middle;
+}
+
+svg {
+    width: 90%;
+    height: 100%;
+    position:top;
+    padding-left:35%;
+    margin-top:-8%;
+}
+
+path.slice{
+    stroke-width:2px;
+}
+
+text{
+    font-family: 'Yantramanav', sans-serif;
+}
+
+polyline{
+    opacity: .3;
+    stroke: black;
+    stroke-width: 2px;
+    fill: none;
+}
+
+.labelValue
+{
+    font-family: 'Yantramanav', sans-serif;
+    font-size: 60%;
+    opacity: .5;
+
+}
+
+label {
+    font-family: 'Yantramanav', sans-serif;
+    font-weight: 900;
+    display:block;
+    font-size:1.5em;
+}
+
+form {
+    margin-left:5%;
+    width:80%;
+    text-align: justify;
+/*    width:30%;*/
+}
+
+
+/*radio boxes */
+input[type="radio"] {
+ -webkit-appearance:none;/* Hides the default checkbox style */ 
+ height:2em;
+ width:2em;
+ cursor:pointer;
+ position:relative;
+ -webkit-transition: .15s;
+ border-radius:2em;
+ background-color:white;
+ border: 2px #3B95DB;
+ vertical-align:middle;
+ right:0;
+ float:right;
+}
+
+input[type="radio"]:checked {
+ background-color:#0065B4;
+ vertical-align:middle;
+ float:right;
+}
+
+input[type="radio"]:before, input[type="checkbox"]:checked:before {
+ position:absolute;
+ top:0;
+ left:0;
+ width:100%;
+ height:100%;
+ line-height:2em;
+ text-align:center;
+ background:#3B95DB;
+ color:white;
+ content: '+';
+ border-radius:2em;
+ vertical-align:middle;
+float:right;
+}
+
+input[type="radio"]:checked:before {
+ content: '-';
+ border-radius:2em;
+ background:#0065B4;
+ color:white;
+ vertical-align:middle;
+float:right;
+}
+
+input[type="radio"]:hover:before {
+ background:(#0065B4,0.3);
+ border-radius:2em;
+ vertical-align:middle;
+  float:right;
+
+}
+
+input:focus{
+  outline:none;
+}
+/*end radio boxes*/
+
+.toolTip {
+    font-family: 'Yantramanav', sans-serif;
+    position: absolute;
+    display: none;
+    width: auto;
+    height: auto;
+    background: none repeat scroll 0 0 white;
+    border: 0 none;
+    border-radius: 8px 8px 8px 8px;
+    box-shadow: -3px 3px 15px #888888;
+    color: black;
+    font: 12px sans-serif;
+    padding: 5px;
+    text-align: center;
+}
+
+
+.legend {
+    font-family: 'Yantramanav', sans-serif;
+    font-size: 60%;
+}
+rect {
+    stroke-width: 2;
+}
+
+text {
+    font: 10px sans-serif;
+}
+
+
+text.value{
+    font-size: 200%;
+    fill: white;
+}
+
+text.label{
+    font-size: 100%;
+}
+
+.axis text {
+    font: 10px sans-serif;
+}
+
+.axis path{
+    fill: none;
+/*    stroke: #000;*/
+    stroke:none;
+}
+
+.axis line {
+    fill: none;
+    stroke: #000;
+    shape-rendering: crispEdges;
+}
+
+.axis .tick line {
+    stroke-width: 1;
+    stroke: rgba(0, 0, 0, 0.2);
+}
+
+.axisHorizontal path{
+    fill: none;
+}
+
+.axisHorizontal line {
+    fill: none;
+    stroke: #000;
+    shape-rendering: crispEdges;
+}
+
+.axisHorizontal .tick line {
+    stroke-width: 1;
+    stroke: rgba(0, 0, 0, 0.2);
+}
+
+.bar {
+    fill: steelblue;
+    fill-opacity: .9;
+}
+
+.x.axis path {
+    display: none;
+}
+
+/*selector*/
+
+#selector{
+    width:15%;
+    overflow-x:hidden;
+    display:inline-block;
+    position:relative;
+    padding-left:5%;
+}
+
+/*gallery*/
+
+
+#gallery {
+    width:45%;
+    height:100%;
+    display:inline-block;
+    margin-left:5%;
+}
+
+#gallery h1 {
+    display:block;
+}
+
+#gallery h3, h4, p {
+    display:inline;
+}
+
+#gallery p{
+    margin-left: 2%;
+}
+
+#top1{
+    width:100%;
+    height:70px;
+    background-image: url("https://images.metmuseum.org/CRDImages/dp/web-large/DP279530.jpg");
+    background-position: center;
+    background-size:30%;
+    background-color: #808080;
+    background-blend-mode: multiply;
+    position:relative;
+}
+
+#top2{
+    width:100%;
+    height:70px;
+    background-image: url("https://images.metmuseum.org/CRDImages/dp/web-large/DP800838.jpg");
+    background-position: center;
+    background-size:30%;
+    background-color: #808080;
+    background-blend-mode: multiply;
+    position:relative;
+
+}
+
+#top3{
+    width:100%;
+    height:70px;
+    background-image: url("https://images.metmuseum.org/CRDImages/dp/web-large/DP803578.jpg");
+    background-position: center;
+    background-size:30%;
+    background-color: #808080;
+    background-blend-mode: multiply;
+    position:relative;
+
+}
+
+.tile {
+    height:100%;
+    width:40%;
+    background-color:#E6E6E6;
+
+}
+
+#tile0{
+    height:320px;
+    position:relative;
+    float:left;
+}
+
+#tile0 h1{
+    color:#0065B4;
+    margin-top:60%;
+    text-align:center;
+}
+
+#tile1 {
+    visibility:hidden;
+    float:right;
+}
+
+.image {
+    top:0;
+}
+
+.caption{
+    color:white;
+    position:absolute;
+    width:100%;
+    text-align:right;
+    bottom:2%;
+    line-height:0.8em;
+}
+
+.caption h3{
+    font-weight:4=700;
+    margin-right:3%;
+    bottom:0;
+    font-size:0.6em;
+}
+
+.caption p{
+    font-weight:300;
+    font-size:1em;
+    margin-right:3%;
+    bottom:0;
+}
+
+.info{
+    bottom:0;
+    padding:5%;
+}
+
+.info h1 {
+    font-weight:400;
+}
+
+.info h3{
+    font-weight:700;
+    color:#0065B4;
+}
+
+.info h4{
+    color:#3B95DB;
+}
+
+.info p{
+    font-weight:300;
+}
+
+/*origins*/
+
+#origins {
+    display:inline-block;
+    width:20%;
+    position:relative;
+    float:right;
+    right:5%;
+}
+
+#origins h1{
+    font-weight:300;
+    font-size:2em;
+    padding:2%;
+}
+
+#origins .culture {
+    font-family: 'Yantramanav', sans-serif;
+    padding:2%;
+    font-weight:300;
+    line-height: 2em;
+}
