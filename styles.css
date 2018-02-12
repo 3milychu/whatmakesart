@@ -322,13 +322,28 @@ text.label{
     top:0;
 }
 
-.caption{
+.caption, .caption2, .caption3{
     color:white;
     position:absolute;
     width:100%;
     text-align:right;
     bottom:2%;
     line-height:0.8em;
+}
+
+#name1, #name2, #name3 {
+    font-weight:300;
+    font-size:1em;
+    margin-right:3%;
+    bottom:0;
+    display:block;
+}
+
+#count1, #count2, #count3 {
+    font-weight:4=700;
+    margin-right:3%;
+    bottom:0;
+    font-size:0.6em;
 }
 
 .caption h3{
@@ -384,6 +399,15 @@ text.label{
 }
 
 #origins .culture {
+    font-family: 'Yantramanav', sans-serif;
+    padding:2%;
+    font-weight:300;
+    line-height: 2em;
+}
+
+.culture text {
+    font-size:1em;
+    display:block;
     font-family: 'Yantramanav', sans-serif;
     padding:2%;
     font-weight:300;

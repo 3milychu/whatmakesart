@@ -5,6 +5,7 @@ var yearMin;
 var yearMax;
 var count;
 
+var total;
 var goldData;
 var silverData;
 var bronzeData;
@@ -13,9 +14,6 @@ var steelData;
 var glassData;
 var zincData;
 
-var people1 = [];
-var people2 = [];
-var people3 = [];
 
 //Sketch histogram
 
@@ -57,6 +55,7 @@ d3.csv("https://media.githubusercontent.com/media/3milychu/majorstudio/master/la
 				// console.log(JSON.stringify(countByYear[0]));
 
 			// create subsets of data for each medium selector
+				data = data;
 
 		   		total = d3.nest()
 			   		.key(function(d) { return d.objectBeginDate; })
@@ -167,8 +166,6 @@ d3.csv("https://media.githubusercontent.com/media/3milychu/majorstudio/master/la
 
 				var div = d3.select("body").append("div").attr("class", "toolTip");
 
-				var formatPercent = d3.format(",.2r");
-
 				    // define x and y parameters
 
 					var x = d3.scaleLinear()
@@ -254,8 +251,7 @@ function change(dataset) {
 // end change dataset function
 };
 
-// roll up origin stats for each dataset
-
+// UPDATE FUNCTION: origin stats for each dataset
 function origins(dataset) {
 
 	var totalRows = dataset.length;
@@ -268,65 +264,164 @@ function origins(dataset) {
 	  	.rollup(function(v) { return v.length; })
 	  	.entries(dataset)
 	  	.sort(function(a,b) {return d3.descending(a.value,b.value);});
-	console.log(origins);
+	// console.log(origins);
 
-	 var culture1 = d3.select(".culture").selectAll(".culture1")
-	 	.data(origins)
-        .enter()
-        .append("div")
-        .attr("id", "culture1")
-        .filter(function (d, i) { return i === 0;})
-        .text(function(d) { return d.key + " " + format(d.value/totalRows); }) 
+	d3.select(".culture").selectAll("text").remove()
 
-     var culture2 = d3.select(".culture").selectAll(".culture2")
-	 	.data(origins)
-        .enter()
-        .append("div")
-        .attr("id", "culture2")
-        .filter(function (d, i) { return i === 1;})
-        .text(function(d) { return d.key + " " + format(d.value/totalRows); })
+	var culture1 = d3.select(".culture").selectAll("#ranks")
+		 	.data(origins.filter(function (d, i) { return i === 0;}))
+	        .enter()
+	        .append("text")
+	        .attr("id", "culture1")
+	        .text(function(d) { return d.key + " " + format(d.value/totalRows); })
+	        .exit();
 
-    var culture3 = d3.select(".culture").selectAll(".culture3")
-	 	.data(origins)
-        .enter()
-        .append("div")
-        .attr("id", "culture3")
-        .filter(function (d, i) { return i === 2;})
-        .text(function(d) { return d.key + " " + format(d.value/totalRows); })
+	var culture2 = d3.select(".culture").selectAll("#ranks")
+		 	.data(origins.filter(function (d, i) { return i === 1;}))
+	        .enter()
+	        .append("text")
+	        .attr("id", "culture2")
+	        .text(function(d) { return d.key + " " + format(d.value/totalRows); })
+	        .exit();
 
-     var culture4 = d3.select(".culture").selectAll(".culture4")
-	 	.data(origins)
-        .enter()
-        .append("div")
-        .attr("id", "culture4")
-        .filter(function (d, i) { return i === 3;})
-        .text(function(d) { return d.key + " " + format(d.value/totalRows); })
+	var culture3 = d3.select(".culture").selectAll("#ranks")
+		 	.data(origins.filter(function (d, i) { return i === 2;}))
+	        .enter()
+	        .append("text")
+	        .attr("id", "culture3")
+	        .text(function(d) { return d.key + " " + format(d.value/totalRows); })
+	        .exit();
 
-     var culture5 = d3.select(".culture").selectAll(".culture5")
-	 	.data(origins)
-        .enter()
-        .append("div")
-        .attr("id", "culture5")
-        .filter(function (d, i) { return i === 4;})
-        .text(function(d) { return d.key + " " + format(d.value/totalRows); })
+	var culture4 = d3.select(".culture").selectAll("#ranks")
+		 	.data(origins.filter(function (d, i) { return i === 3;}))
+	        .enter()
+	        .append("text")
+	        .attr("id", "culture4")
+	        .text(function(d) { return d.key + " " + format(d.value/totalRows); })
+	        .exit();
 
-     var culture6 = d3.select(".culture").selectAll(".culture6")
-	 	.data(origins)
-        .enter()
-        .append("div")
-        .attr("id", "culture6")
-        .filter(function (d, i) { return i === 5;})
-        .text(function(d) { return d.key + " " + format(d.value/totalRows); })
+	var culture5= d3.select(".culture").selectAll("#ranks")
+		 	.data(origins.filter(function (d, i) { return i === 4;}))
+	        .enter()
+	        .append("text")
+	        .attr("id", "culture5")
+	        .text(function(d) { return d.key + " " + format(d.value/totalRows); })
+	        .exit();
 
-    var culture7 = d3.select(".culture").selectAll(".culture7")
-	 	.data(origins)
-        .enter()
-        .append("div")
-        .attr("id", "culture7")
-        .filter(function (d, i) { return i === 6;})
-        .text(function(d) { return d.key + " " + format(d.value/totalRows); })
+	var culture6 = d3.select(".culture").selectAll("#ranks")
+		 	.data(origins.filter(function (d, i) { return i === 5;}))
+	        .enter()
+	        .append("text")
+	        .attr("id", "culture6")
+	        .text(function(d) { return d.key + " " + format(d.value/totalRows); })
+	        .exit();
 
+	var culture7 = d3.select(".culture").selectAll("#ranks")
+		 	.data(origins.filter(function (d, i) { return i === 6;}))
+	        .enter()
+	        .append("text")
+	        .attr("id", "culture7")
+	        .text(function(d) { return d.key + " " + format(d.value/totalRows); })
+	        .exit();
+    // end update origins function
     };
+
+    // UPDATE FUNCTION: gallery view for each dataset 
+    function gallery(dataset) {
+
+    var name;
+
+	if (dataset == goldData){
+		name = "Gold";
+	} else if (dataset == silverData) {
+		name = "Silver";
+	} else if (dataset == bronzeData) {
+		name = "Bronze";
+	} else if (dataset == glassData) {
+		name = "Glass";
+	} else if (dataset == leatherData) {
+		name = "Leather";
+	} else if (dataset == steelData) {
+		name = "Steel";
+	} else if (dataset == zincData) {
+		name = "Zinc";
+	};
+
+	var format = d3.format(".0%");
+
+	var departments = d3.nest()
+   		.key(function(d) { return d.Department; })
+	  	.rollup(function(v) { return v.length; })
+	  	.entries(dataset)
+	  	.sort(function(a,b) {return d3.descending(a.value,b.value);});
+	console.log(departments);
+
+	d3.select(".caption").selectAll("text").remove();
+
+	var dept1_name = d3.select(".caption").selectAll("#dept1")
+		 	.data(departments.filter(function (d, i) { return i === 0;}))
+	        .enter()
+	        .append("text")
+	        .attr("id", "name1")
+	        .text(function(d) { return d.key })
+	        .exit();
+
+	var dept1_count = d3.select(".caption").selectAll("#dept1")
+		 	.data(departments.filter(function (d, i) { return i === 0;}))
+	        .enter()
+	        .append("text")
+	        .attr("id", "count1")
+	        .text(function(d) { return d.value + " items"})
+	        .exit();
+
+	d3.select(".caption2").selectAll("text").remove();
+
+	var dept2_name = d3.select(".caption2").selectAll("#dept2")
+		 	.data(departments.filter(function (d, i) { return i === 1;}))
+	        .enter()
+	        .append("text")
+	        .attr("id", "name2")
+	        .text(function(d) { return d.key })
+	        .exit();
+
+	var dept2_count = d3.select(".caption2").selectAll("#dept2")
+		 	.data(departments.filter(function (d, i) { return i === 1;}))
+	        .enter()
+	        .append("text")
+	        .attr("id", "count2")
+	        .text(function(d) { return d.value + " items"})
+	        .exit();
+
+	d3.select(".caption3").selectAll("text").remove();
+
+	var dept3_name = d3.select(".caption3").selectAll("#dept3")
+		 	.data(departments.filter(function (d, i) { return i === 2;}))
+	        .enter()
+	        .append("text")
+	        .attr("id", "name3")
+	        .text(function(d) { return d.key })
+	        .exit();
+
+	var dept3_count = d3.select(".caption3").selectAll("#dept3")
+		 	.data(departments.filter(function (d, i) { return i === 2;}))
+	        .enter()
+	        .append("text")
+	        .attr("id", "count3")
+	        .text(function(d) { return d.value + " items"})
+	        .exit();
+
+	d3.select(".info").selectAll("text").remove();
+
+	var choice1 = d3.select(".info").selectAll("#choice1")
+	        .enter()
+	        .append('h1')
+	        .attr("id", "choice1")
+	        .text(name)
+	        .exit();
+
+    // end update gallery function
+    };
+
 
 				// change dataset to selected dataset
 				d3.select("input[value=\"total\"]").property("checked", true);
@@ -339,42 +434,49 @@ function origins(dataset) {
 			        if (value == "All")
 			        {
 			            change(total);
-			            origins(total);
+			            origins(data);
 			        }
 			        else if (value == "Gold")
 			        {
 			            change(goldDataUse);
 			            origins(goldData);
+			            gallery(goldData);
 			        }
 			        else if (value == "Silver")
 			        {
 			            change(silverDataUse);
 			            origins(silverData);
+			            gallery(silverData);
 			        }
 			        else if (value == "Bronze")
 			        {
 			            change(bronzeDataUse);
 			            origins(bronzeData);
+			            gallery(bronzeData);
 			        }
 			        else if (value == "Glass")
 			        {
 			            change(glassDataUse);
 			            origins(glassData);
+			            gallery(glassData);
 			        }
 			        else if (value == "Leather")
 			        {
 			            change(leatherDataUse);
 			            origins(leatherData);
+			            gallery(leatherData);
 			        }
 			        else if (value == "Steel")
 			        {
 			            change(steelDataUse);
 			            origins(steelData);
+			            gallery(steelData);
 			        }
 			        else if (value == "Zinc")
 			        {
 			            change(zincDataUse);
 			            origins(zincData);
+			            gallery(zincData);
 			        }
 			    }
 
