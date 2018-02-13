@@ -169,14 +169,14 @@ d3.csv("https://media.githubusercontent.com/media/3milychu/majorstudio/master/la
 				    // define x and y parameters
 
 					var x = d3.scaleLinear()
-				            .range([100, windowWidth/3]);
+				            .range([120, windowWidth/3]);
 
 				    var y = d3.scaleLinear()
 				            .range([height/6, 0]);
 
-				    var xAxis = d3.axisBottom(x);
+				    var xAxis = d3.axisBottom(x).ticks(5);
 
-				    var yAxis = d3.axisLeft(y);
+				    var yAxis = d3.axisLeft(y).ticks(5);
 
 				var svg = d3.select("svg")
 				// var svg = d3.select("body").append("svg")
@@ -203,6 +203,7 @@ function change(dataset) {
             .attr("transform", "translate(0," + height/6 + ")")
             .call(xAxis);
 
+
     svg.select(".y.axis").remove();
     svg.select(".x.axis").remove();
 
@@ -211,7 +212,8 @@ function change(dataset) {
             .call(yAxis)
             .append("text")
             .attr("transform", "rotate(-90)")
-            .attr("y", 6)
+            // .attr("transform", "translate(0, -100)")
+            .attr("y", 100)
             .attr("dy", ".71em")
             .style("text-anchor", "end")
             .text("Frequency");
@@ -225,14 +227,15 @@ function change(dataset) {
             .attr("x", function(d) { return x(d.key); })
             .attr("y", function(d) { return y(d.value); })
             .attr("height", function(d) { return height/6 - y(d.value); })
-            .attr("width", 5);
+            // .attr("width", function(d) { return (windowWidth/3) / (yearMax-yearMin); });
+            .attr("width", 4);
 
     bar
             .on("mousemove", function(d){
                 div.style("left", d3.event.pageX+10+"px");
                 div.style("top", d3.event.pageY-25+"px");
                 div.style("display", "inline-block");
-                div.html("Year" + (d.key)+"<br>"+(d.value) + " Objects");
+                div.html("Year" + (d.key)+"<br>"+(d.value) + " Items");
             });
     bar
             .on("mouseout", function(d){
@@ -255,7 +258,7 @@ function change(dataset) {
 function origins(dataset) {
 
 	var totalRows = dataset.length;
-	console.log(totalRows);
+	// console.log(totalRows);
 
 	var format = d3.format(".0%");
 
@@ -328,6 +331,9 @@ function origins(dataset) {
 
     // UPDATE FUNCTION: gallery view for each dataset 
     function gallery(dataset) {
+
+    var totalRows = dataset.length;
+	// console.log(totalRows);
 
     var name;
 
@@ -410,15 +416,58 @@ function origins(dataset) {
 	        .text(function(d) { return d.value + " items"})
 	        .exit();
 
-	d3.select(".info").selectAll("text").remove();
+	d3.select(".medium").selectAll("text").remove();
 
-	var choice1 = d3.select(".info").selectAll("#choice1")
+	var choice1 = d3.select(".medium").selectAll("#choice1")
+			.data(departments.filter(function (d, i) { return i === 0;}))
 	        .enter()
-	        .append('h1')
+	        .append("text")
 	        .attr("id", "choice1")
 	        .text(name)
 	        .exit();
 
+	d3.select(".info1").selectAll("text").remove();
+
+	var dept1_percent = d3.select(".info1").selectAll("#dept1-percent")
+			.data(departments.filter(function (d, i) { return i === 0;}))
+	        .enter()
+	        .append("text")
+	        .attr("id", "dept1-percent")
+	        .text(function(d) {return format(d.value/totalRows); })
+	        .exit();
+
+	d3.select(".info2").selectAll("text").remove();
+
+	var info_dept1 = d3.select(".info2").selectAll("#dept1-name")
+		 	.data(departments.filter(function (d, i) { return i === 0;}))
+	        .enter()
+	        .append("text")
+	        .attr("id", "dept1-name")
+	        .text(function(d) { return d.key })
+	        .exit();
+
+	d3.select(".info3").selectAll("text").remove();
+
+	var dept1_percent = d3.select(".info3").selectAll("#dept2-percent")
+			.data(departments.filter(function (d, i) { return i === 1;}))
+	        .enter()
+	        .append("text")
+	        .attr("id", "dept2-percent")
+	        .text(function(d) {return format(d.value/totalRows); })
+	        .exit();
+
+	d3.select(".info4").selectAll("text").remove();
+
+	var info_dept1 = d3.select(".info4").selectAll("#dept2-name")
+		 	.data(departments.filter(function (d, i) { return i === 1;}))
+	        .enter()
+	        .append("text")
+	        .attr("id", "dept2-name")
+	        .text(function(d) { return d.key })
+	        .exit();
+
+
+	
     // end update gallery function
     };
 
@@ -435,6 +484,7 @@ function origins(dataset) {
 			        {
 			            change(total);
 			            origins(data);
+			            gallery(data);
 			        }
 			        else if (value == "Gold")
 			        {

@@ -1,4 +1,4 @@
-p, h1, h2, h3, h4, a {
+p, h1, h2, h3, h4, a, text {
 	font-family: 'Yantramanav', sans-serif;
 }
 
@@ -42,15 +42,11 @@ svg {
     height: 100%;
     position:top;
     padding-left:35%;
-    margin-top:-8%;
+    margin-top:-10%;
 }
 
 path.slice{
     stroke-width:2px;
-}
-
-text{
-    font-family: 'Yantramanav', sans-serif;
 }
 
 polyline{
@@ -73,6 +69,7 @@ label {
     font-weight: 900;
     display:block;
     font-size:1.5em;
+    line-height:1.8em;
 }
 
 form {
@@ -168,11 +165,6 @@ rect {
     stroke-width: 2;
 }
 
-text {
-    font: 10px sans-serif;
-}
-
-
 text.value{
     font-size: 200%;
     fill: white;
@@ -245,6 +237,7 @@ text.label{
     height:100%;
     display:inline-block;
     margin-left:5%;
+    top:0;
 }
 
 #gallery h1 {
@@ -261,7 +254,7 @@ text.label{
 
 #top1{
     width:100%;
-    height:70px;
+    height:80px;
     background-image: url("https://images.metmuseum.org/CRDImages/dp/web-large/DP279530.jpg");
     background-position: center;
     background-size:30%;
@@ -272,7 +265,7 @@ text.label{
 
 #top2{
     width:100%;
-    height:70px;
+    height:80px;
     background-image: url("https://images.metmuseum.org/CRDImages/dp/web-large/DP800838.jpg");
     background-position: center;
     background-size:30%;
@@ -284,7 +277,7 @@ text.label{
 
 #top3{
     width:100%;
-    height:70px;
+    height:80px;
     background-image: url("https://images.metmuseum.org/CRDImages/dp/web-large/DP803578.jpg");
     background-position: center;
     background-size:30%;
@@ -296,13 +289,13 @@ text.label{
 
 .tile {
     height:100%;
-    width:40%;
+    width:45%;
     background-color:#E6E6E6;
 
 }
 
 #tile0{
-    height:320px;
+    height:350px;
     position:relative;
     float:left;
 }
@@ -328,7 +321,7 @@ text.label{
     width:100%;
     text-align:right;
     bottom:2%;
-    line-height:0.8em;
+    line-height:1em;
 }
 
 #name1, #name2, #name3 {
@@ -346,40 +339,42 @@ text.label{
     font-size:0.6em;
 }
 
-.caption h3{
-    font-weight:4=700;
-    margin-right:3%;
-    bottom:0;
-    font-size:0.6em;
-}
-
-.caption p{
-    font-weight:300;
-    font-size:1em;
-    margin-right:3%;
-    bottom:0;
-}
-
 .info{
     bottom:0;
     padding:5%;
 }
 
-.info h1 {
+.medium text {
+    font-size:2em;
     font-weight:400;
+    margin:0;
+    padding:0;
+    display:block;
+    vertical-align:middle;
+    
 }
 
-.info h3{
+.info1 text{
     font-weight:700;
     color:#0065B4;
+    font-size:1em;
+    display:inline;
 }
 
-.info h4{
+.info3 text{
+    font-size:1em;
     color:#3B95DB;
+    display:inline;
 }
 
-.info p{
+.info2, .info4 text {
+    font-size:1em;
     font-weight:300;
+    display:inline;
+}
+
+#dept1-percent, #dept2-percent, #dept2-name {
+    display:inline;
 }
 
 /*origins*/
